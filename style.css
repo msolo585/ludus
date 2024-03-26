@@ -164,6 +164,7 @@ body {
   align-items: center;
   font-weight: 500;
   transition: 0.25s;
+  border-radius: 8px;
 }
 .paralax-image__button a:hover,
 .paralax-image__button a:focus {
