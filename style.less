@@ -1,0 +1,235 @@
+@purple:#7e3899;
+
+
+
+.row{
+    max-width: 1464px;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vert{
+    flex-direction: column;
+}
+
+
+body{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.top-bar{
+    border-bottom: 3px solid black;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    width: 100%;
+    background-color: white;
+}
+
+.main-nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    &__logo{
+        &-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        img{
+            height: 90px;
+            transition: 0.5s;
+            font-weight: 800;
+            font-size: 1.125rem;
+            position: relative;
+            &:hover{
+                transform: rotate(360deg);
+            }
+        }
+        
+    }
+    &__item{
+        height: 90px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: .5s;
+        
+        &:hover{
+            background-color: @purple;
+            color: white;
+            .main-nav__url{
+                color: white;
+            }
+            .main-nav__url span::after{
+                width: 100%
+            }
+        }
+    }
+    &__links{
+        display: flex;
+        list-style: none;
+    }
+    &__url{
+        font-weight: 800;
+        font-size: 1.125rem;
+        text-transform: uppercase;
+        position: relative;
+        text-decoration: none;
+        color: black;
+        height: 100%;
+        width: 100%;
+        padding: 0 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        span{
+            position: relative;
+            &::after{
+                bottom: 0;
+                content: "";
+                display: block;
+                height: 2px;
+                position: absolute;
+                background: #fff;
+                transition: width 0.3s ease 0s, left 0.3s ease 0s;
+                width: 0;
+            }
+        }
+    }
+
+}
+
+.paralax-image{
+    margin-top: 93px;
+    background-image: url(/paralax.jpg);
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after{
+        content: "";
+        position: absolute;
+        top: 0; bottom: 0; left: 0; right: 0; 
+        background: rgba(0,0,0,0.8);
+    }
+    &__content{
+        position: absolute;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    &__title{
+        color: white;
+        font-size: 3rem;
+        font-weight: 900;
+        text-transform: uppercase;
+    }
+    &__description{
+        color: white;
+        font-size: 1.75rem;
+        font-weight: 500;
+        padding-top: 36px;
+        padding-bottom: 36px;
+    }
+    &__quote{
+        color: white;
+        font-size: 1.25rem;
+        font-weight: 400;
+    }
+    &__button{
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+        a{
+            text-decoration: none;  
+            border: 2px solid white;
+            color: white;
+            text-transform: uppercase;
+            margin: 0 8px;
+            padding: 0 24px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 500;
+            transition: 0.25s;
+            &:hover, &:focus{
+                background: @purple;
+                font-weight: 700;
+            }
+            span{
+                margin-right: 8px;
+            }
+        }
+
+    }
+}
+
+.video-section{
+    margin-top: 50px;
+    background: lightgray;
+    padding-bottom: 50px;
+    
+    &__inner{
+        background: lightgray;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    &__header{
+        font-size: 2.5rem;
+        font-weight: 700;
+        padding:25px 0;
+        text-decoration: underline;
+    }
+}
+.test{
+    height: 2000px;
+    background: white;
+}
+
+@media screen and (max-width: 767px) {
+    .paralax-image{
+        &__title{
+            font-size: 1.5rem;
+        }
+        &__description{
+            font-size: 1.25rem;
+            padding: 24px 12px;
+            text-align: center;
+        }
+        &__quote{
+            font-size: 0.875rem;
+        }
+        &__button{
+            span{
+                display: none;
+            }
+        }
+    }
+
+}
