@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 .row {
   max-width: 1464px;
   padding-left: 12px;
@@ -12,6 +15,16 @@
 }
 .vert {
   flex-direction: column;
+}
+section {
+  transition: 0.25s;
+}
+.com-header {
+  font-size: 3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 32px 0;
+  border-bottom: 4px solid #7e3899;
 }
 body {
   font-family: 'Roboto', sans-serif;
@@ -55,16 +68,6 @@ body {
   align-items: center;
   transition: 0.5s;
 }
-.main-nav__item:hover {
-  background-color: #7e3899;
-  color: white;
-}
-.main-nav__item:hover .main-nav__url {
-  color: white;
-}
-.main-nav__item:hover .main-nav__url span::after {
-  width: 100%;
-}
 .main-nav__links {
   display: flex;
   list-style: none;
@@ -75,26 +78,19 @@ body {
   text-transform: uppercase;
   position: relative;
   text-decoration: none;
-  color: black;
   height: 100%;
   width: 100%;
   padding: 0 25px;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.25s;
+  color: black;
 }
-.main-nav__url span {
-  position: relative;
-}
-.main-nav__url span::after {
-  bottom: 0;
-  content: "";
-  display: block;
-  height: 2px;
-  position: absolute;
-  background: #fff;
-  transition: width 0.3s ease 0s, left 0.3s ease 0s;
-  width: 0;
+.main-nav__url:hover,
+.main-nav__url:focus {
+  background-color: #7e3899;
+  color: white;
 }
 .paralax-image {
   margin-top: 93px;
@@ -143,6 +139,11 @@ body {
   color: white;
   font-size: 1.25rem;
   font-weight: 400;
+  transition: 0.25s;
+}
+.paralax-image__quote:hover,
+.paralax-image__quote:focus {
+  text-decoration: none;
 }
 .paralax-image__button {
   height: 50px;
@@ -196,6 +197,118 @@ body {
   height: 2000px;
   background: white;
 }
+.s-schedule {
+  padding: 32px 0;
+}
+.s-schedule__body {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -12px;
+}
+.s-schedule__day {
+  width: calc(25% - 24px);
+  margin: 24px 12px;
+  line-height: 150%;
+}
+.s-schedule__day-header {
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+  border-bottom: 2px solid #7e3899;
+  width: fit-content;
+}
+.s-coaches {
+  padding: 32px 0;
+}
+.s-coaches__body {
+  display: flex;
+}
+.s-coaches__img {
+  aspect-ratio: 1;
+  border-radius: 8px;
+  object-fit: cover;
+  width: 375px;
+}
+.s-coaches__right {
+  margin-left: 24px;
+}
+.s-coaches__title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #7e3899;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+}
+.s-coaches__name {
+  margin-left: 12px;
+}
+.s-coaches__about {
+  font-size: 1.25rem;
+  margin-top: 24px;
+  line-height: 150%;
+}
+.main-footer {
+  background-color: black;
+  padding: 32px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 32px;
+  text-align: center;
+}
+.main-footer__quote {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 400;
+  transition: 0.25s;
+}
+.main-footer__quote:hover,
+.main-footer__quote:focus {
+  text-decoration: none;
+}
+@media screen and (max-width: 1464px) {
+  .row {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .s-schedule__day {
+    width: calc(33.33% - 24px);
+  }
+  .com-header {
+    font-size: 2rem;
+  }
+  .s-coaches,
+  .s-schedule {
+    padding: 16px 0;
+  }
+  .s-coaches__body {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .s-coaches__right {
+    margin-left: unset;
+    margin-top: 24px;
+  }
+  .s-coaches__title {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.25rem;
+  }
+  .s-coaches__about {
+    font-size: 1rem;
+  }
+  .paralax-image {
+    background-attachment: unset;
+  }
+}
 @media screen and (max-width: 767px) {
   .paralax-image__title {
     font-size: 1.5rem;
@@ -210,5 +323,24 @@ body {
   }
   .paralax-image__button span {
     display: none;
+  }
+  .s-schedule__day {
+    width: calc(50% - 24px);
+  }
+  .main-footer__quote {
+    font-size: 0.875rem;
+  }
+}
+@media screen and (max-width: 525px) {
+  .s-schedule__day {
+    width: calc(100% - 24px);
+  }
+  .top-bar .row {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .main-nav__url {
+    padding: 0 8px;
+    font-size: 0.875rem;
   }
 }
